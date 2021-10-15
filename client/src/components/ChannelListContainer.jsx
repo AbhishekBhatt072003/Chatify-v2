@@ -24,10 +24,24 @@ const Sidebar = () => {
     )
 }
 
+
+const CompanyHeader = () => {
+    return (
+        <div className="channel-list__header">
+            <p className="channel-list__header__text">
+                Chatify
+            </p>
+        </div>
+    )
+}
+
 const ChannelListContainer = () => {
     return (
         <>
             <Sidebar />
+            <div className="channel-list__list__wrapper">
+                <CompanyHeader />
+            </div>
         </>
     )
 }
