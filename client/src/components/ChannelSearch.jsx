@@ -19,6 +19,7 @@ const ChannelSearch = () => {
     function onSearch(event) {
         event.preventDefault();
         // setLoading(true);
+        // console.log(event.target.value)
         setQuery(event.target.value);
         getChannels(event.target.value);
     }
