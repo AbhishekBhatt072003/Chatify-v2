@@ -10,7 +10,7 @@ const TeamChannelList = ({ children, error = false, loading, type }) => {
         return type === 'team' ? (
             <div className="team-channel-list">
                 <p className="team-channel-list__message">
-                    Connection Error, Please try again
+                    Connection Error, Please try again after some time
                 </p>
             </div>
         ) : null;
