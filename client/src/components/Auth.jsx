@@ -3,12 +3,28 @@ import Cookies from 'universal-cookie'
 import axios from 'axios'
 import signinImage from "../assets/signup.jpg"
 
+
+const initialState = {
+    fullName: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    phoneNumber: "",
+    avatarURL: "",
+}
+
+
 const Auth = () => {
 
+
+    const [form, setForm] = useState(initialState);
     const [isSignup, setIsSignup] = useState(false);
 
 
-    const handleChange = () => { }
+    const handleChange = (e) => {
+        // console.log(form);
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
 
 
 
@@ -17,14 +33,18 @@ const Auth = () => {
     }
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(form);
 
+    }
 
     return (
         <div className="auth__form-container">
             <div className="auth__form-container_fields">
                 <div className="auth__form-container_fields-content" >
                     <p>{isSignup ? "Sign In" : "Sign Up"}</p>
-                    <form onSubmit={() => { }}>
+                    <form onSubmit={handleSubmit}>
                         {
                             isSignup && (
                                 <div className="auth__form-container_fields-content_input">
@@ -113,7 +133,11 @@ const Auth = () => {
                             )
                         }
 
-
+                        <div className="auth__form-container_fields-content_button">
+                            <button>
+                                {isSignup ? "Sign Up" : "Sign In"}
+                            </button>
+                        </div>
                     </form>
                     <div className="auth__form-container_fields-account">
                         <p>
@@ -130,5 +154,6 @@ const Auth = () => {
         </div>
     )
 }
+
 
 export default Auth
